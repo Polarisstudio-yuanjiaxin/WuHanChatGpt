@@ -32,42 +32,34 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 /**/
-import React, { useEffect } from "react";
-import L2Dwidget from "https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js";
+import React, { useState } from "react";
 
-function MyComponent() {
-  useEffect(() => {
-    L2Dwidget.init({
-      model: {
-        jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
-        scale: 1,
-      },
-      display: {
-        position: "right",
-        width: 120,
-        height: 300,
-        hOffset: 0,
-        vOffset: -20,
-      },
-      mobile: {
-        show: false,
-        scale: 0.3,
-      },
-      react: {
-        opacityDefault: 0.8,
-        opacityOnHover: 0.2,
-      },
-    });
-  }, []);
+function App() {
+  const [modelPath, setModelPath] = useState("https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json"); // 使用useState来存储模型的JSON文件路径
+  const [displayProps] = useState({
+    position: "right",
+    width: 120,
+    height: 300,
+    hOffset: 0,
+    vOffset: -20
+  });
+  const [mobileProps] = useState({ show: false, scale: 0.3 });
+  const [reactProps] = useState({ opacityDefault: 0.8, opacityOnHover: 0.2 });
 
   return (
     <div>
-      {/* 这里是你的JSX内容 */}
+      L2Dwidget.init({
+        model: modelPath, // 将模型的JSON文件路径传递给L2Dwidget.init方法
+        display: displayProps, // 将显示属性传递给L2Dwidget.init方法
+        mobile: mobileProps, // 将移动设备属性传递给L2Dwidget.init方法
+        react: reactProps // 将React属性传递给L2Dwidget.init方法
+      });
     </div>
   );
 }
 
-export default MyComponent;
+export default App; // 将组件导出为默认的JSX语法
+
 
 /**/
 
