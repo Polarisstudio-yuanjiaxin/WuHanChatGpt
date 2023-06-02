@@ -31,16 +31,36 @@ import { showToast } from "./ui-lib";
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
-<script type="text/javascript" charset="utf-8" async=""
-  src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.0.min.js">
-</script>
+import React, { Component } from "react";
 
-<script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js?_=1557308476616"></script>
+class MyComponent extends Component {
+  componentDidMount() {
+    const script1 = document.createElement("script");
+    script1.type = "text/javascript";
+    script1.src =
+      "https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.0.min.js";
+    script1.async = true;
+    document.body.appendChild(script1);
 
-<script type="text/javascript">
-  L2Dwidget.init();
-</script>
+    const script2 = document.createElement("script");
+    script2.type = "text/javascript";
+    script2.src =
+      "https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js?_=1557308476616";
+    document.body.appendChild(script2);
+
+    const script3 = document.createElement("script");
+    script3.type = "text/javascript";
+    script3.innerHTML = "L2Dwidget.init();";
+    document.body.appendChild(script3);
+  }
+
+  render() {
+    return <div id="root"></div>;
+  }
+}
+
+export default MyComponent;
+
 function useHotKey() {
   const chatStore = useChatStore();
 
