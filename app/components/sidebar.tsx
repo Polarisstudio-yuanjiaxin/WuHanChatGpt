@@ -32,34 +32,6 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 /**/
-import React, { useState } from "react";
-
-function App() {
-  const [modelPath, setModelPath] = useState("https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json"); // 使用useState来存储模型的JSON文件路径
-  const [displayProps] = useState({
-    position: "right",
-    width: 120,
-    height: 300,
-    hOffset: 0,
-    vOffset: -20
-  });
-  const [mobileProps] = useState({ show: false, scale: 0.3 });
-  const [reactProps] = useState({ opacityDefault: 0.8, opacityOnHover: 0.2 });
-
-  return (
-    <div>
-      L2Dwidget.init({
-        model: modelPath, // 将模型的JSON文件路径传递给L2Dwidget.init方法
-        display: displayProps, // 将显示属性传递给L2Dwidget.init方法
-        mobile: mobileProps, // 将移动设备属性传递给L2Dwidget.init方法
-        react: reactProps // 将React属性传递给L2Dwidget.init方法
-      });
-    </div>
-  );
-}
-
-export default App; // 将组件导出为默认的JSX语法
-
 
 /**/
 
