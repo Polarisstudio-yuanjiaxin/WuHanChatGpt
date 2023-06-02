@@ -32,6 +32,59 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 /**/
+import React, { Component } from "react";
+
+class MyComponent extends Component {
+  componentDidMount() {
+    const script1 = document.createElement("script");
+    script1.src =
+      "https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js";
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement("script");
+    script2.innerHTML = `L2Dwidget.init({
+      "model": {
+          // 替换模型 
+          // jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
+          // jsonPath: "https://unpkg.com/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json",
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-z16@1.0.5/assets/z16.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-hibiki@1.0.5/assets/hibiki.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-ni-j@1.0.5/assets/ni-j.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-nipsilon@1.0.5/assets/nipsilon.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-nito@1.0.5/assets/nito.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-tsumiki@1.0.5/assets/tsumiki.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-unitychan@1.0.5/assets/unitychan.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json',
+          // jsonPath: 'https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json',
+          jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+          "scale": 1
+      },
+      "display": {
+          "position": "right",
+          "width": 120,
+          "height": 300,
+          "hOffset": 0,
+          "vOffset": -20
+      },
+      "mobile": {
+          "show": false,
+          "scale": 0.3
+      },
+      "react": {
+          "opacityDefault": 0.8,
+          "opacityOnHover": 0.2
+      }
+    });`;
+    document.body.appendChild(script2);
+  }
+
+  render() {
+    return <div></div>;
+  }
+}
+
+export default MyComponent;
 
 /**/
 
