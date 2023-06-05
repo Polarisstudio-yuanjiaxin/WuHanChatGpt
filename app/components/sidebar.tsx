@@ -10,7 +10,7 @@ import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
-import React from 'react';
+
 import Locale from "../locales";
 
 import { useAppConfig, useChatStore } from "../store";
@@ -32,6 +32,7 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 /**/
+import React from 'react';
 function App() {
   return (
     <html lang="en">
