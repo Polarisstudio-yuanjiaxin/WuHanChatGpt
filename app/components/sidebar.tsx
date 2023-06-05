@@ -32,48 +32,7 @@ const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
 });
 /**/
-import React from 'react';
-function App() {
-  return (
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
-        <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
-        <script>
-          {`
-          L2Dwidget.init({
-            "model": {
-              jsonPath: 'https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json',
-              "scale": 1
-            },
-            "display": {
-              "position": "right",
-              "width": 120,
-              "height": 300,
-              "hOffset": 0,
-              "vOffset": -20
-            },
-            "mobile": {
-              "show": false,
-              "scale": 0.3
-            },
-            "react": {
-              "opacityDefault": 0.8,
-              "opacityOnHover": 0.2
-            }
-          });
-          `}
-        </script>
-      </body>
-    </html>
-  );
-}
 
-export default App;
 
 /**/
 
