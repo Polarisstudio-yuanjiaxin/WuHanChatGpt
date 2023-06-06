@@ -354,9 +354,7 @@ export function Settings() {
               </div>
             </Popover>
           </ListItem>
-/**
-         
-**/
+
           <ListItem title={Locale.Settings.SendKey}>
             <Select
               value={config.submitKey}
