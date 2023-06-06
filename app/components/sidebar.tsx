@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+
 import styles from "./home.module.scss";
-// 导入其他组件和图标
+
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
@@ -9,17 +10,33 @@ import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
-// 导入其他模块和工具函数
+
 import Locale from "../locales";
+
 import { useAppConfig, useChatStore } from "../store";
-import { MAX_SIDEBAR_WIDTH, MIN_SIDEBAR_WIDTH, NARROW_SIDEBAR_WIDTH, Path, REPO_URL } from "../constant";
+
+import {
+  MAX_SIDEBAR_WIDTH,
+  MIN_SIDEBAR_WIDTH,
+  NARROW_SIDEBAR_WIDTH,
+  Path,
+  REPO_URL,
+} from "../constant";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
 import { showToast } from "./ui-lib";
 
+const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
+  loading: () => null,
+});
+/**/
+
+
+/**/
+
 function useHotKey() {
-  // 获取聊天存储的状态和方法
   const chatStore = useChatStore();
 
   useEffect(() => {
@@ -42,8 +59,8 @@ function useHotKey() {
 }
 
 function useDragSideBar() {
-  // 定义边界值函数和一些状态
   const limit = (x: number) => Math.min(MAX_SIDEBAR_WIDTH, x);
+
   const config = useAppConfig();
   const startX = useRef(0);
   const startDragWidth = useRef(config.sidebarWidth ?? 300);
@@ -183,32 +200,6 @@ export function SideBar(props: { className?: string }) {
         className={styles["sidebar-drag"]}
         onMouseDown={(e) => onDragMouseDown(e as any)}
       ></div>
-
-      {/* 添加新的代码段 */}
-      <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
-      <script>
-        L2Dwidget.init({
-          "model": {
-            jsonPath: 'https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json',
-            "scale": 1
-          },
-          "display": {
-            "position": "right",
-            "width": 120,
-            "height": 300,
-            "hOffset": 0,
-            "vOffset": -20
-          },
-          "mobile": {
-            "show": false,
-            "scale": 0.3
-          },
-          "react": {
-            "opacityDefault": 0.8,
-            "opacityOnHover": 0.2
-          }
-        });
-      </script>
     </div>
   );
 }
